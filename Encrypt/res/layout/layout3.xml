@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:layout_width="310dp"
+        android:layout_height="wrap_content"
+        android:layout_x="20px"
+        android:layout_y="50px"
+        android:text="    本软件为整个软件系统的手机端应用程序，应用在android手机上，适合版本为2.2以上版本。
+	此软件系统开发人员为同济大学 赵子豪  杨阳 胡长武  指导老师：程久军
+	版本为v1.1" />
+
+    <Button
+        android:id="@+id/backButtonofabout"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="76dp"
+        android:layout_height="wrap_content"
+        android:text="返回" />
+
+</LinearLayout>

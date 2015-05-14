@@ -1,0 +1,52 @@
+package com.zhaozihao.iot_mobile;
+
+
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.net.Socket;
+import java.net.UnknownHostException;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.EditText;
+import android.widget.ToggleButton;
+
+public class Change extends Activity{
+
+	private ToggleButton doorButton,curtainButton,heaterButton,airconditionButton,lightButton;
+	private EditText editHeater,editAir;
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.change);
+		doorButton = (ToggleButton)this.findViewById(R.id.doorButton);
+		doorButton.setOnClickListener(new OnClickListener() {
+			
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				Socket socket;
+				try {
+					socket = new Socket("192.168.0.101",6666);
+					DataInputStream din = new DataInputStream(socket.getInputStream());
+		   			DataOutputStream dout = new DataOutputStream(socket.getOutputStream());
+				} catch (UnknownHostException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+			}
+		
+			
+		});
+	}
+
+	
+
+}

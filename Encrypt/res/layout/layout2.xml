@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/widget1"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/activity5" >
+
+    <Button
+        android:id="@+id/myButton1"
+        android:layout_width="162px"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="68dp"
+        android:text="@string/str_button1" />
+
+    <EditText
+        android:id="@+id/myEditText2"
+        android:layout_width="fill_parent"
+        android:layout_height="223px"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:ems="10"
+        android:textSize="18sp" />
+
+    <Button
+        android:id="@+id/myButton2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:text="十" />
+
+    <EditText
+        android:id="@+id/myEditText1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_toLeftOf="@+id/myButton2"
+        android:layout_toRightOf="@+id/widget27"
+        android:ems="10"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/widget27"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/myEditText1"
+        android:layout_alignBottom="@+id/myEditText1"
+        android:layout_alignParentLeft="true"
+        android:text="@string/str_textview"
+        android:textSize="16sp" />
+
+</RelativeLayout>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lint>
+    <issue id="ParserError">
+        <ignore path="src\com\zhaozihao\iot_mobile\Change.java" />
+        <ignore path="src\com\zhaozihao\iot_mobile\IOTÖÇ»Û¼Ò¾Ó.java" />
+    </issue>
+</lint>

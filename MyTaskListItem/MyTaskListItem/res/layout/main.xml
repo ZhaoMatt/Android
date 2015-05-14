@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical" android:layout_width="fill_parent"
+	android:layout_height="fill_parent" android:background="#a4a4a4">
+
+	<RelativeLayout android:layout_width="fill_parent"
+		android:layout_height="90px" android:background="#dddddd">
+
+		<ImageView android:id="@+id/lef" android:layout_width="80px"
+			android:layout_height="30px" android:layout_marginLeft="10px"
+			android:layout_centerVertical="true" />
+		<ImageView android:layout_width="18px"
+			android:layout_height="25px" android:layout_centerVertical="true"
+			android:layout_alignParentRight="true" android:src="@drawable/xiaojiantou" />
+		<TextView android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:layout_centerVertical="true"
+			android:layout_toRightOf="@id/lef" android:layout_marginLeft="90px" />
+	</RelativeLayout>
+
+	<RelativeLayout android:id="@+id/relativeLayout"
+		android:layout_width="fill_parent" android:background="#ffffff"
+		android:layout_height="wrap_content" android:paddingTop="10px"
+		android:paddingBottom="10px" android:layout_marginTop="3px">
+		<ImageView android:id="@+id/imagejiantou"
+			android:layout_width="18px" android:layout_height="25px"
+			android:scaleType="fitXY" android:layout_centerVertical="true"
+			android:src="@drawable/xiaojiantou" android:layout_alignParentRight="true" />
+		<RelativeLayout android:id="@+id/relativelist"
+			android:layout_width="wrap_content" android:layout_height="wrap_content"
+			android:layout_toLeftOf="@id/imagejiantou">
+			<ImageView android:id="@+id/leftImage"
+				android:layout_width="80px" android:layout_height="80px"
+				android:scaleType="fitXY" android:layout_centerVertical="true"
+				android:src="@drawable/icon" android:layout_marginLeft="10px" />
+			<LinearLayout android:id="@+id/textlinear"
+				android:orientation="vertical" android:layout_width="fill_parent"
+				android:layout_height="wrap_content" android:layout_marginLeft="5px"
+				android:layout_toRightOf="@id/leftImage" android:layout_toLeftOf="@id/imagejiantou"
+				android:layout_centerVertical="true">
+				<TextView android:id="@+id/textTitle" android:layout_width="match_parent"
+					android:layout_height="wrap_content" android:text="测试标题"
+					android:textColor="#000000" android:textSize="25px" />
+				<TextView android:id="@+id/textcontent"
+					android:layout_width="match_parent" android:layout_height="wrap_content"
+					android:text="测试内容，    三星手机      谁用谁知道有     HTC起始页不错的"
+					android:textColor="#000000" android:textSize="15px" />
+			</LinearLayout>
+		</RelativeLayout>
+		<ImageView android:layout_width="300px"
+			android:layout_height="100px" android:layout_below="@id/relativelist"
+			android:layout_marginLeft="100px" android:src="@drawable/dylistbom4" />
+	</RelativeLayout>
+
+</LinearLayout>

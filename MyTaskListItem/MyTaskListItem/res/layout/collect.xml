@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent" android:layout_height="match_parent">
+	<com.myTaskListItem.TitleImgVew
+		android:layout_width="140px" android:layout_height="140px" />
+	<ImageView android:layout_width="12px" android:layout_height="12px"
+		android:src="@drawable/deletflag" android:layout_gravity="left"
+		android:layout_marginLeft="127px" android:layout_marginTop="127px" />
+</FrameLayout>

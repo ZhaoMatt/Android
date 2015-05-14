@@ -1,0 +1,8 @@
+#Mon Nov 26 21:56:08 CST 2012
+org.eclipse.debug.ui.switch_perspective_on_suspend=always
+pref_state_memento.org.eclipse.debug.ui.VariableView=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<VariablesViewMemento org.eclipse.debug.ui.SASH_DETAILS_PART\="315" org.eclipse.debug.ui.SASH_VIEW_PART\="684">\r\n<PRESENTATION_CONTEXT_PROPERTIES IMemento.internal.id\="org.eclipse.debug.ui.VariableView"/>\r\n</VariablesViewMemento>
+org.eclipse.debug.ui.cancel_launch_with_compile_errors=always
+eclipse.preferences.version=1
+preferredDetailPanes=DefaultDetailPane\:DefaultDetailPane|
+preferredTargets=default\:default|
+org.eclipse.debug.ui.PREF_LAUNCH_PERSPECTIVES=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?>\r\n<launchPerspectives>\r\n<launchPerspective configurationType\="com.android.ide.eclipse.adt.debug.LaunchConfigType" delegate\="com.android.ide.eclipse.adt.debug.LaunchConfigType" mode\="run" perspective\="com.android.ide.eclipse.ddms.Perspective"/>\r\n</launchPerspectives>\r\n

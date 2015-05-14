@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/activity4"
+    android:orientation="vertical" >
+    
+    <LinearLayout 
+        android:orientation="horizontal"
+        android:layout_width="fill_parent" 
+        android:layout_height="fill_parent" 
+        android:layout_weight="1">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="20px"
+        android:layout_y="50px"
+        android:text="@string/inputkeyofadmin"
+        android:layout_weight="1" />
+
+    <EditText
+        android:id="@+id/sdpwEdit"
+        android:layout_width="150px"
+        android:layout_height="wrap_content"
+        android:layout_x="140px"
+        android:layout_y="40px"
+        android:inputType="textPassword"
+        android:textSize="16sp"
+        android:layout_weight="1" />
+    
+    </LinearLayout>
+    
+    <LinearLayout 
+        android:orientation="horizontal"
+        android:layout_width="fill_parent" 
+        android:layout_height="fill_parent" 
+        android:layout_weight="1">
+    
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="20px"
+        android:layout_y="120px"
+        android:text="@string/authcode"
+        android:layout_weight="1" />
+
+    <EditText
+        android:id="@+id/sdkeyEdit"
+        android:layout_width="150px"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.51"
+        android:layout_x="80px"
+        android:layout_y="110px"
+        android:textSize="16sp" />
+    
+    </LinearLayout>
+    
+    <LinearLayout 
+        android:orientation="horizontal"
+        android:layout_width="fill_parent" 
+        android:layout_height="fill_parent" 
+        android:layout_weight="1">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="20px"
+        android:layout_y="190px"
+        android:text="@string/authority" 
+        android:layout_weight="1"/>
+    <Spinner
+        android:id="@+id/sdmySpinner1"
+        style="@android:style/MediaButton.Ffwd"
+        android:layout_width="150px"
+        android:layout_height="wrap_content"
+        android:layout_x="75px"
+        android:layout_y="180px" 
+        android:layout_weight="1"/>
+    
+    </LinearLayout>
+    
+    <LinearLayout 
+        android:orientation="horizontal"
+        android:layout_width="fill_parent" 
+        android:layout_height="fill_parent" 
+        android:layout_weight="1">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="20px"
+        android:layout_y="260px"
+        android:text="@string/timelimit" 
+        android:layout_weight="1"/>
+    
+    <Spinner
+        android:id="@+id/sdmySpinner2"
+        style="@android:style/MediaButton.Ffwd"
+        android:layout_width="150px"
+        android:layout_height="wrap_content"
+        android:layout_x="75px"
+        android:layout_y="260px" 
+        android:layout_weight="1"/>
+    
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/sdgoButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="100px"
+        android:layout_y="320px"
+        android:text="生成动态密码" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="0px"
+        android:layout_y="380px"
+        android:text="动态密码:"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/sdresultView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="95px"
+        android:layout_y="380px"
+        android:textSize="40sp" />
+
+    <Button
+        android:id="@+id/sdcopyButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="100px"
+        android:layout_y="420px"
+        android:text="向服务器发送回执" />
+
+</LinearLayout>

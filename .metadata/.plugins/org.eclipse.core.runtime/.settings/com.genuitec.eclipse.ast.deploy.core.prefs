@@ -1,0 +1,13 @@
+#Sat Dec 01 20:42:30 CST 2012
+myeclipseTomcatServer.DatabaseWeb.contextRoot=/DatabaseWeb
+myeclipseTomcatServer.DatabaseWeb.deployIsOverProject=false
+myeclipseTomcatServer.DatabaseWeb.shouldOverwrite=false
+myeclipseTomcatServer.DatabaseWeb.isExploded=true
+myeclipseTomcatServer.DatabaseWeb.type=WebDeployment
+myeclipseTomcatServer.DatabaseWeb.altContextRoot=/DatabaseWeb
+myeclipseTomcatServer.DatabaseWeb.isUptoDate=true
+myeclipseTomcatServer.DatabaseWeb.IEARProjectName=
+myeclipseTomcatServer.DatabaseWeb.deploymentPath=F\:\\Workspaces\\MyEclipse 8.5\\.metadata\\.me_tcat\\webapps\\DatabaseWeb
+eclipse.preferences.version=1
+myeclipseTomcatServer.DatabaseWeb.shouldBackup=false
+myeclipseTomcatServer.DatabaseWeb.isDeployed=true

@@ -1,0 +1,234 @@
+package IOT.com;
+
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.SwingWorker;
+import javax.swing.border.EmptyBorder;
+import javax.swing.event.TreeExpansionEvent;
+import javax.swing.JTextField;
+import javax.swing.JLabel;
+import com.jgoodies.forms.factories.DefaultComponentFactory;
+import java.awt.FlowLayout;
+import java.awt.GridBagLayout;
+import java.awt.GridBagConstraints;
+import javax.swing.JButton;
+import javax.swing.JTextPane;
+import java.awt.TextField;
+import java.awt.Button;
+import javax.swing.JEditorPane;
+
+
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.net.ServerSocket;
+import java.net.Socket;
+import java.net.UnknownHostException;
+import javax.swing.JTextArea;
+
+/**
+ * 门	 状态2种
+热水器	 状态2+n种(n代表可调温度个数)	 温度30~98
+空调	 状态2+n种	 		 温度16~30
+窗帘	 状态2种
+灯	 状态2种
+
+发送控制消息定义
+#define MSG_INVALID		0		// 无效消息
+#define DOOR_OPEN		1		// 门的开关
+#define DOOR_CLOSE		2
+#define CURTAIN_OPEN		3		// 窗帘的开关
+#define CURTAIN_CLOSE		4		
+#define HEATER_ON		5		// 热水器的开关
+#define HEATER_OFF		6		
+#define AIR_ON			7		// 空调的开关
+#define AIR_OFF			8
+#define LIGHT_ON		9		// 灯的开关
+#define LIGHT_OFF		10
+#define SENDBACK		11		// 要求返回所有状态数据
+
+发送状态返回请求
+例：如需要发送所有状态，用上面的SENDBACK，如果单独返回某一个，比如门的状态，则发送65,
+发送的是1个字节的控制信息，65是0100,0001b，即将DOOR_OPEN字节中的D6置为1，
+同理，查询窗帘状态，则发送67，即0100,0011b（b代表使用的是二进制表示，实际发送的时候没有b）
+ * @author ZhaoZihao
+ *
+ */
+
+public class server extends JFrame {
+	private JTextField txtIp;
+	private JTextField textField_1;
+	private JTextArea textArea;
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					server frame = new server();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public server() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 476, 345);
+		getContentPane().setLayout(null);
+		
+		txtIp = new JTextField();
+		txtIp.setEditable(false);
+		txtIp.setText("IP\u5730\u5740");
+		txtIp.setBounds(8, 238, 66, 21);
+		getContentPane().add(txtIp);
+		txtIp.setColumns(10);
+		
+		final JEditorPane IPAD = new JEditorPane();
+		IPAD.setBounds(91, 238, 182, 21);
+		getContentPane().add(IPAD);
+		
+		textArea = new JTextArea();
+		textArea.setBounds(8, 10, 442, 219);
+		getContentPane().add(textArea);
+		textArea.setText("等待开启监听线程......");
+		
+		textField_1 = new JTextField();
+		textField_1.setEditable(false);
+		textField_1.setText("\u7AEF\u53E3");
+		textField_1.setBounds(8, 269, 66, 21);
+		getContentPane().add(textField_1);
+		textField_1.setColumns(10);
+		
+		final JEditorPane Port = new JEditorPane();
+		Port.setBounds(91, 269, 106, 21);
+		getContentPane().add(Port);
+		
+		Button start = new Button("\u5F00\u59CB\u76D1\u542C");
+		start.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				new Thread(new Server4MP()).start();
+				textArea.append("开始监听手机端线程");
+				Socket socket = null;
+				try {   
+		            socket = new Socket(IPAD.getText(),Integer.parseInt(Port.getText()));   
+		            OutputStream netOut = socket.getOutputStream();   
+		            DataOutputStream doc = new DataOutputStream(netOut);   
+		            DataInputStream in = new DataInputStream(socket.getInputStream());   
+		            //向PC发送指令   
+		            doc.writeUTF("1");   
+		            String res = in.readUTF();   
+		            System.out.println(res); 
+		            
+		            doc.writeUTF("65");   
+		            res = in.readUTF();   
+		            System.out.println(res); 
+		            
+		            doc.close();   
+		            in.close();   
+		        } catch (UnknownHostException e1) {   
+		            e1.printStackTrace();   
+		        } catch (IOException e1) {   
+		            e1.printStackTrace();   
+		        } finally {   
+		            if (socket != null) {   
+		                try {   
+		                    socket.close();   
+		                } catch (IOException e1) {   
+		                }   
+		            }   
+		        }   
+			}
+		});
+		start.setActionCommand("");
+		start.setBounds(279, 236, 76, 23);
+		getContentPane().add(start);
+		
+		Button close = new Button("\u7ED3\u675F\u76D1\u542C");
+		close.setBounds(374, 236, 76, 23);
+		getContentPane().add(close);
+	}
+	
+	
+
+	public class Server4MP implements Runnable  {
+		
+		public static final String ServerIP= "192.168.1.10X"; 
+		public String addrMP = null;
+		public int portMP ;
+		public boolean monitorMP = true;
+		
+
+		@Override
+		public void run() {
+			// TODO Auto-generated method stub
+
+			ServerSocket serverSocket = null;
+			Socket socket4PC = null;
+			DataInputStream din = null;
+			DataOutputStream dout = null;
+			DataInputStream dinPC = null;
+			DataOutputStream doutPC = null;
+			 
+			
+			while(monitorMP)
+			{
+				try {
+					
+					serverSocket = new ServerSocket(6666);//开通6666端口
+					Socket socket = serverSocket.accept();
+					//成功接受MP的socket之后建立和PC的socket
+					socket4PC = new Socket("192.168.0.101",8888);
+					textArea.append("");
+					addrMP = socket.getInetAddress().getHostAddress();
+					portMP = socket.getPort();
+					//从Socket当中得到InputStream对象
+					din = new DataInputStream(socket.getInputStream());
+		   			dout = new DataOutputStream(socket.getOutputStream());
+		   			String str = din.readUTF();
+		   			if(str.startsWith("<#door#>"))
+		   			{
+		   				str = str.substring(8);
+//			   			String [] number = str.split("\\|"); 
+//			   			System.out.println(number[0]);
+//			   			System.out.println(number[1]);
+		   				if(str.equals("1")) 
+		   					doutPC.writeUTF("1");
+		   				else if(str.equals("0")) 
+		   					doutPC.writeUTF("0");
+		   				else dout.writeUTF("flase");
+			   			dout.writeUTF("true");
+						
+		   			}
+					
+				}catch (Exception e) {
+					// TODO: handle exception
+					e.printStackTrace();
+				}
+				finally{
+					try {
+						serverSocket.close();
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+				
+			}
+			
+		}
+
+	}
+}

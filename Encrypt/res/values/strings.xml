@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="hello">Hello World, EncryptActivity!</string>
+    <string name="app_name">Encrypt</string>
+    <string name="inputkeyofadmin">输入管理员密码:</string>
+	<string name="authcode">验证码:</string>
+	<string name="authority">您想赋予的权限:</string>
+	<string name="timelimit">您想赋予的时限:</string>
+	<string name="receiverSMS">开始接收短信</string>
+	<string name="unreceiverSMS">刷新</string>
+	<string name="str_dialog_body">发送中···</string>
+	<string name="str_dialog_title">请稍等...</string>
+	<string name="str_button1">发送短信</string>
+	<string name="str_textview">收件人</string>
+	<string name="exit">退出</string>
+	<string name="about">关于</string>
+	<string name="setting">设置</string>
+	<string name="changekey">修改管理员密码</string>
+	<string name="changebackground">更换背景图片</string>
+	<string name="backtomain">返回到主页</string>
+	<string name="into2G">未连接wifi，请进入离线模式</string>
+	<string name="intowifi">已连接wifi，请进入wifi模式</string>
+	<string name="openwifi">开启wifi</string>
+	<string name="closewifi">关闭wifi</string>
+	<string name="str_start_wifi_failed">尝试启动WiFi服务失败</string> 
+  	<string name="str_start_wifi_done">已启动WiFi服务</string> 
+ 	<string name="str_stop_wifi_failed">尝试关闭WiFi服务失败</string> 
+  	<string name="str_stop_wifi_done">已关闭WiFi服务</string> 
+  	<string name="str_wifi_enabling">WiFi启动中...</string> 
+  	<string name="str_wifi_disabling">WiFi关闭中...</string> 
+  	<string name="str_wifi_disabled">WiFi已经关闭</string> 
+  	<string name="str_wifi_unknow">WiFi未知状态...</string> 
+  	<string name="username">用户名</string> 
+  	<string name="userkey">密码</string> 
+	
+</resources>

@@ -1,0 +1,17 @@
+package com.zhaozihao.iot_mobile;
+
+public class Change {
+
+	public Change() {
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}
